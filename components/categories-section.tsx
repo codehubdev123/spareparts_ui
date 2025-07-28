@@ -25,6 +25,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import { useRouter } from "next/navigation";
 
 const categories = [
   {
@@ -358,6 +359,7 @@ export default function CategoriesSection({
   direction = "rtl",
   language = "ar",
 }: CategoriesSectionProps) {
+  const router = useRouter();
   const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const swiperRef = useRef<SwiperType>();
@@ -567,6 +569,7 @@ export default function CategoriesSection({
         <div className="text-center mt-12 animate-fadeInUp delay-800">
           <button
             className={`group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600 hover:from-blue-700 hover:via-cyan-700 hover:to-indigo-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-blue-400/30 ${isArabic ? "font-arabic" : ""}`}
+            onClick={() => router.push("/shop")}
           >
             <span>{currentTexts.viewAll}</span>
             <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300">
