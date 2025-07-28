@@ -180,53 +180,6 @@ export default function HomePage() {
       </section>
       <CategoriesSection />
       {/* Categories Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              {t("categories.title")}
-            </h2>
-            <p className="text-xl text-gray-600">{t("categories.subtitle")}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.map((category) => (
-              <Card
-                key={category.id}
-                className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
-              >
-                <div className="relative">
-                  <img
-                    src={category.image || "/placeholder.svg"}
-                    alt={language === "ar" ? category.nameAr : category.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div
-                    className={`absolute top-4 ${category.color} text-white px-3 py-1 rounded-full text-sm font-semibold ${
-                      language === "ar" ? "right-4" : "left-4"
-                    }`}
-                  >
-                    {t("new")}
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {language === "ar" ? category.nameAr : category.name}
-                  </h3>
-                  <Link href={`/categories/${category.id}`}>
-                    <Button
-                      variant="outline"
-                      className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors bg-transparent"
-                    >
-                      {t("view.products")}
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Featured Products */}
       <section className="py-16 bg-gray-50">

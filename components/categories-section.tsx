@@ -408,33 +408,31 @@ export default function CategoriesSection({
         <div
           className={`text-center mb-12 ${isRTL ? "text-right" : "text-left"}`}
         >
-          <div className="animate-fadeInUp">
+          <div className="animate-fadeInUp text-center">
             <div
-              className={`inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full mb-6 shadow-lg border border-blue-200/50`}
+              className={`inline-flex justify-center items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full mb-6 shadow-lg border border-blue-200/50`}
             >
               <span className="w-3 h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-pulse"></span>
               <span
-                className={`text-sm font-semibold text-blue-700 ${isArabic ? "font-arabic" : ""}`}
+                className={`text-sm font-semibold text-blue-700 ${isArabic ? "" : ""}`}
               >
                 {currentTexts.shopByCategory}
               </span>
             </div>
           </div>
 
-          <div className="animate-fadeInUp delay-200">
+          <div className="animate-fadeInUp delay-200 text-center">
             <h2
-              className={`text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 via-cyan-700 to-indigo-800 bg-clip-text text-transparent mb-6 ${isArabic ? "font-arabic" : ""}`}
+              className={`text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 via-cyan-700 to-indigo-800 bg-clip-text text-transparent mb-6 ${isArabic ? "" : ""}`}
             >
               {currentTexts.exploreCategories}
             </h2>
           </div>
 
-          <div className="animate-fadeInUp delay-400">
-            <p
-              className={`text-lg text-blue-700/80 max-w-2xl mx-auto leading-relaxed ${isArabic ? "font-arabic" : ""}`}
-            >
+          <div className="animate-fadeInUp delay-400 text-center">
+            <h4 className="text-lg text-blue-700/80 max-w-2xl leading-relaxed mx-auto">
               {currentTexts.description}
-            </p>
+            </h4>
           </div>
         </div>
 
@@ -531,14 +529,14 @@ export default function CategoriesSection({
 
                       {/* Category Name */}
                       <h3
-                        className={`text-lg font-bold text-blue-800 mb-3 text-center leading-tight group-hover:text-cyan-700 transition-all duration-300 ${isArabic ? "font-arabic" : ""}`}
+                        className={`text-lg font-bold text-blue-800 mb-3 text-center leading-tight group-hover:text-cyan-700 transition-all duration-300 ${isArabic ? "" : ""}`}
                       >
                         {categoryName}
                       </h3>
 
                       {/* Item Count */}
                       <p
-                        className={`text-sm text-blue-600/80 text-center mb-4 ${isArabic ? "font-arabic" : ""}`}
+                        className={`text-sm text-blue-600/80 text-center mb-4 ${isArabic ? "" : ""}`}
                       >
                         {category.itemCount.toLocaleString()}{" "}
                         {currentTexts.products}
@@ -546,7 +544,7 @@ export default function CategoriesSection({
 
                       {/* Shop Now Link */}
                       <div
-                        className={`flex items-center justify-center gap-2 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 px-4 py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg ${isArabic ? "font-arabic" : ""}`}
+                        className={`flex items-center justify-center gap-2 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 px-4 py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg ${isArabic ? "" : ""}`}
                       >
                         <span>{currentTexts.shopNow}</span>
                         <ChevronIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -568,7 +566,7 @@ export default function CategoriesSection({
         {/* View All Button */}
         <div className="text-center mt-12 animate-fadeInUp delay-800">
           <button
-            className={`group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600 hover:from-blue-700 hover:via-cyan-700 hover:to-indigo-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-blue-400/30 ${isArabic ? "font-arabic" : ""}`}
+            className={`group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600 hover:from-blue-700 hover:via-cyan-700 hover:to-indigo-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-blue-400/30 ${isArabic ? "" : ""}`}
             onClick={() => router.push("/shop")}
           >
             <span>{currentTexts.viewAll}</span>
