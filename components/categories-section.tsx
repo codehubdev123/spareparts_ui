@@ -35,7 +35,7 @@ const categories = [
     itemCount: 2450,
     gradient: "from-blue-400 to-blue-600",
     hoverGradient: "from-blue-500 to-blue-700",
-    href: "/categories/engine-parts",
+    href: "/shop",
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const categories = [
     itemCount: 1890,
     gradient: "from-cyan-400 to-blue-500",
     hoverGradient: "from-cyan-500 to-blue-600",
-    href: "/categories/brake-parts",
+    href: "/shop",
   },
   {
     id: 3,
@@ -55,7 +55,7 @@ const categories = [
     itemCount: 1650,
     gradient: "from-sky-400 to-blue-500",
     hoverGradient: "from-sky-500 to-blue-600",
-    href: "/categories/suspension",
+    href: "/shop",
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ const categories = [
     itemCount: 1420,
     gradient: "from-indigo-400 to-blue-600",
     hoverGradient: "from-indigo-500 to-blue-700",
-    href: "/categories/electrical",
+    href: "/shop",
   },
   {
     id: 5,
@@ -75,7 +75,7 @@ const categories = [
     itemCount: 980,
     gradient: "from-purple-400 to-blue-500",
     hoverGradient: "from-purple-500 to-blue-600",
-    href: "/categories/fuel-system",
+    href: "/shop",
   },
   {
     id: 6,
@@ -85,7 +85,7 @@ const categories = [
     itemCount: 720,
     gradient: "from-teal-400 to-blue-500",
     hoverGradient: "from-teal-500 to-blue-600",
-    href: "/categories/tools",
+    href: "/shop",
   },
   {
     id: 7,
@@ -95,7 +95,7 @@ const categories = [
     itemCount: 840,
     gradient: "from-blue-500 to-indigo-600",
     hoverGradient: "from-blue-600 to-indigo-700",
-    href: "/categories/cooling",
+    href: "/shop",
   },
   {
     id: 8,
@@ -105,7 +105,7 @@ const categories = [
     itemCount: 580,
     gradient: "from-cyan-500 to-blue-600",
     hoverGradient: "from-cyan-600 to-blue-700",
-    href: "/categories/tires",
+    href: "/shop",
   },
   {
     id: 1,
@@ -115,7 +115,7 @@ const categories = [
     itemCount: 2450,
     gradient: "from-blue-400 to-blue-600",
     hoverGradient: "from-blue-500 to-blue-700",
-    href: "/categories/engine-parts",
+    href: "/shop",
   },
   {
     id: 2,
@@ -125,7 +125,7 @@ const categories = [
     itemCount: 1890,
     gradient: "from-cyan-400 to-blue-500",
     hoverGradient: "from-cyan-500 to-blue-600",
-    href: "/categories/brake-parts",
+    href: "/shop",
   },
   {
     id: 3,
@@ -135,7 +135,7 @@ const categories = [
     itemCount: 1650,
     gradient: "from-sky-400 to-blue-500",
     hoverGradient: "from-sky-500 to-blue-600",
-    href: "/categories/suspension",
+    href: "/shop",
   },
   {
     id: 4,
@@ -145,7 +145,7 @@ const categories = [
     itemCount: 1420,
     gradient: "from-indigo-400 to-blue-600",
     hoverGradient: "from-indigo-500 to-blue-700",
-    href: "/categories/electrical",
+    href: "/shop",
   },
   {
     id: 5,
@@ -155,7 +155,7 @@ const categories = [
     itemCount: 980,
     gradient: "from-purple-400 to-blue-500",
     hoverGradient: "from-purple-500 to-blue-600",
-    href: "/categories/fuel-system",
+    href: "/shop",
   },
   {
     id: 6,
@@ -165,7 +165,7 @@ const categories = [
     itemCount: 720,
     gradient: "from-teal-400 to-blue-500",
     hoverGradient: "from-teal-500 to-blue-600",
-    href: "/categories/tools",
+    href: "/shop",
   },
   {
     id: 7,
@@ -175,7 +175,7 @@ const categories = [
     itemCount: 840,
     gradient: "from-blue-500 to-indigo-600",
     hoverGradient: "from-blue-600 to-indigo-700",
-    href: "/categories/cooling",
+    href: "/shop",
   },
   {
     id: 8,
@@ -185,7 +185,7 @@ const categories = [
     itemCount: 580,
     gradient: "from-cyan-500 to-blue-600",
     hoverGradient: "from-cyan-600 to-blue-700",
-    href: "/categories/tires",
+    href: "/shop",
   },
   {
     id: 1,
@@ -195,7 +195,7 @@ const categories = [
     itemCount: 2450,
     gradient: "from-blue-400 to-blue-600",
     hoverGradient: "from-blue-500 to-blue-700",
-    href: "/categories/engine-parts",
+    href: "/shop",
   },
   {
     id: 2,
@@ -205,7 +205,7 @@ const categories = [
     itemCount: 1890,
     gradient: "from-cyan-400 to-blue-500",
     hoverGradient: "from-cyan-500 to-blue-600",
-    href: "/categories/brake-parts",
+    href: "/shop",
   },
   {
     id: 3,
@@ -215,7 +215,7 @@ const categories = [
     itemCount: 1650,
     gradient: "from-sky-400 to-blue-500",
     hoverGradient: "from-sky-500 to-blue-600",
-    href: "/categories/suspension",
+    href: "/shop",
   },
   {
     id: 4,
@@ -225,7 +225,7 @@ const categories = [
     itemCount: 1420,
     gradient: "from-indigo-400 to-blue-600",
     hoverGradient: "from-indigo-500 to-blue-700",
-    href: "/categories/electrical",
+    href: "/shop",
   },
   {
     id: 5,
@@ -235,7 +235,7 @@ const categories = [
     itemCount: 980,
     gradient: "from-purple-400 to-blue-500",
     hoverGradient: "from-purple-500 to-blue-600",
-    href: "/categories/fuel-system",
+    href: "/shop",
   },
   {
     id: 6,
@@ -245,7 +245,7 @@ const categories = [
     itemCount: 720,
     gradient: "from-teal-400 to-blue-500",
     hoverGradient: "from-teal-500 to-blue-600",
-    href: "/categories/tools",
+    href: "/shop",
   },
   {
     id: 7,
@@ -255,7 +255,7 @@ const categories = [
     itemCount: 840,
     gradient: "from-blue-500 to-indigo-600",
     hoverGradient: "from-blue-600 to-indigo-700",
-    href: "/categories/cooling",
+    href: "/shop",
   },
   {
     id: 8,
@@ -265,7 +265,7 @@ const categories = [
     itemCount: 580,
     gradient: "from-cyan-500 to-blue-600",
     hoverGradient: "from-cyan-600 to-blue-700",
-    href: "/categories/tires",
+    href: "/shop",
   },
   {
     id: 1,
@@ -275,7 +275,7 @@ const categories = [
     itemCount: 2450,
     gradient: "from-blue-400 to-blue-600",
     hoverGradient: "from-blue-500 to-blue-700",
-    href: "/categories/engine-parts",
+    href: "/shop",
   },
   {
     id: 2,
@@ -285,7 +285,7 @@ const categories = [
     itemCount: 1890,
     gradient: "from-cyan-400 to-blue-500",
     hoverGradient: "from-cyan-500 to-blue-600",
-    href: "/categories/brake-parts",
+    href: "/shop",
   },
   {
     id: 3,
@@ -295,7 +295,7 @@ const categories = [
     itemCount: 1650,
     gradient: "from-sky-400 to-blue-500",
     hoverGradient: "from-sky-500 to-blue-600",
-    href: "/categories/suspension",
+    href: "/shop",
   },
   {
     id: 4,
@@ -305,7 +305,7 @@ const categories = [
     itemCount: 1420,
     gradient: "from-indigo-400 to-blue-600",
     hoverGradient: "from-indigo-500 to-blue-700",
-    href: "/categories/electrical",
+    href: "/shop",
   },
   {
     id: 5,
@@ -315,7 +315,7 @@ const categories = [
     itemCount: 980,
     gradient: "from-purple-400 to-blue-500",
     hoverGradient: "from-purple-500 to-blue-600",
-    href: "/categories/fuel-system",
+    href: "/shop",
   },
   {
     id: 6,
@@ -325,7 +325,7 @@ const categories = [
     itemCount: 720,
     gradient: "from-teal-400 to-blue-500",
     hoverGradient: "from-teal-500 to-blue-600",
-    href: "/categories/tools",
+    href: "/shop",
   },
   {
     id: 7,
@@ -335,7 +335,7 @@ const categories = [
     itemCount: 840,
     gradient: "from-blue-500 to-indigo-600",
     hoverGradient: "from-blue-600 to-indigo-700",
-    href: "/categories/cooling",
+    href: "/shop",
   },
   {
     id: 8,
@@ -345,7 +345,7 @@ const categories = [
     itemCount: 580,
     gradient: "from-cyan-500 to-blue-600",
     hoverGradient: "from-cyan-600 to-blue-700",
-    href: "/categories/tires",
+    href: "/shop",
   },
 ];
 
