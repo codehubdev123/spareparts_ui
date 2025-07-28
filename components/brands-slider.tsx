@@ -1,66 +1,68 @@
-"use client"
-import { useLanguage } from "@/contexts/language-context"
+"use client";
+import { useLanguage } from "@/contexts/language-context";
 
 // Swiper components and modules
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Navigation, Pagination } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 // Swiper styles
-import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function BrandsSlider() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   const brands = [
     {
       name: "Toyota",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b1.png",
     },
     {
       name: "BMW",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b2.png",
     },
     {
       name: "Mercedes-Benz",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b3.png",
     },
     {
       name: "Audi",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b4.png",
     },
     {
       name: "Honda",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b5.png",
     },
     {
       name: "Nissan",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b6.png",
     },
     {
       name: "Ford",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b7.png",
     },
     {
       name: "Volkswagen",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b8.png",
     },
     {
       name: "Hyundai",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b9.png",
     },
     {
       name: "Kia",
-      logo: "/placeholder.svg?height=80&width=120",
+      logo: "/b10.png",
     },
-  ]
+  ];
 
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">{t("trusted.brands")}</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            {t("trusted.brands")}
+          </h2>
           <p className="text-xl text-gray-600">
             {t("language") === "ar"
               ? "نتعامل مع أفضل العلامات التجارية العالمية"
@@ -125,13 +127,33 @@ export default function BrandsSlider() {
 
           {/* Custom Navigation Buttons */}
           <div className="swiper-button-prev-brands absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-blue-50 transition-colors">
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </div>
           <div className="swiper-button-next-brands absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-blue-50 transition-colors">
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </div>
 
@@ -149,22 +171,22 @@ export default function BrandsSlider() {
           margin: 0 4px;
           transition: all 0.3s ease;
         }
-        
+
         .brands-swiper .swiper-pagination-bullet-active {
           background: #2563eb;
           transform: scale(1.2);
         }
-        
+
         .brands-swiper .swiper-slide {
           height: auto;
           display: flex;
           align-items: stretch;
         }
-        
+
         .brands-swiper .swiper-slide > div {
           width: 100%;
         }
       `}</style>
     </section>
-  )
+  );
 }

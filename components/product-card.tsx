@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Star } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
-import { useCart } from "@/contexts/cart-context"
-import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Star } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
+import { useCart } from "@/contexts/cart-context";
+import Link from "next/link";
 
 interface ProductCardProps {
-  id: string
-  name: string
-  nameAr: string
-  price: number
-  originalPrice?: number
-  image: string
-  rating?: number
-  reviews?: number
-  discount?: number
-  inStock?: boolean
+  id: string;
+  name: string;
+  nameAr: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  rating?: number;
+  reviews?: number;
+  discount?: number;
+  inStock?: boolean;
 }
 
 export default function ProductCard({
@@ -32,8 +32,8 @@ export default function ProductCard({
   discount,
   inStock = true,
 }: ProductCardProps) {
-  const { language, t } = useLanguage()
-  const { addToCart } = useCart()
+  const { language, t } = useLanguage();
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
     addToCart({
@@ -43,8 +43,8 @@ export default function ProductCard({
       price,
       image,
       inStock,
-    })
-  }
+    });
+  };
 
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden">
@@ -82,9 +82,16 @@ export default function ProductCard({
         </Link>
         <div className="flex items-center mb-2">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className={`w-4 h-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`} />
+            <Star
+              key={i}
+              className={`w-4 h-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`}
+            />
           ))}
-          <span className={`text-sm text-gray-500 ${language === "ar" ? "mr-2" : "ml-2"}`}>({reviews})</span>
+          <span
+            className={`text-sm text-gray-500 ${language === "ar" ? "mr-2" : "ml-2"}`}
+          >
+            ({reviews})
+          </span>
         </div>
         <div className="flex items-center justify-between mb-3">
           <div>
@@ -92,16 +99,22 @@ export default function ProductCard({
               {price} {t("price.currency")}
             </span>
             {originalPrice && (
-              <span className={`text-sm text-gray-500 line-through ${language === "ar" ? "mr-2" : "ml-2"}`}>
+              <span
+                className={`text-sm text-gray-500 line-through ${language === "ar" ? "mr-2" : "ml-2"}`}
+              >
                 {originalPrice} {t("price.currency")}
               </span>
             )}
           </div>
         </div>
-        <Button onClick={handleAddToCart} className="w-full bg-blue-600 hover:bg-blue-700" disabled={!inStock}>
+        <Button
+          onClick={handleAddToCart}
+          className="w-full bg-blue-600 hover:bg-blue-700"
+          disabled={!inStock}
+        >
           {t("add.to.cart")}
         </Button>
       </CardContent>
     </Card>
-  )
+  );
 }
