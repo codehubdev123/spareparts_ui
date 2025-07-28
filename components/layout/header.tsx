@@ -175,7 +175,7 @@ export default function Header() {
             {/* </li> */}
             <li>
               <Link
-                href="/about"
+                href="#"
                 className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
               >
                 {t("nav.about")}
@@ -183,7 +183,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/contact"
+                href="#"
                 className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
               >
                 {t("nav.contact")}
