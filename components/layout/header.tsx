@@ -1,16 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Search, ShoppingCart, Menu, X, Globe, User, Phone, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
-import { useCart } from "@/contexts/cart-context"
-import Link from "next/link"
+import { useState } from "react";
+import {
+  Search,
+  ShoppingCart,
+  Menu,
+  X,
+  Globe,
+  User,
+  Phone,
+  Mail,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
+import { useCart } from "@/contexts/cart-context";
+import Link from "next/link";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { language, toggleLanguage, t } = useLanguage()
-  const { totalItems } = useCart()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
+  const { totalItems } = useCart();
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
@@ -35,7 +44,10 @@ export default function Header() {
               <Globe className="w-4 h-4" />
               <span>{language === "en" ? "العربية" : "English"}</span>
             </button>
-            <Link href="/login" className="flex items-center space-x-2 rtl:space-x-reverse hover:text-blue-200">
+            <Link
+              href="/login"
+              className="flex items-center space-x-2 rtl:space-x-reverse hover:text-blue-200"
+            >
               <User className="w-4 h-4" />
               <span>{t("nav.login")}</span>
             </Link>
@@ -47,12 +59,19 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
+          <Link
+            href="/"
+            className="flex items-center space-x-2 rtl:space-x-reverse"
+          >
             <div className="bg-blue-600 text-white p-2 rounded-lg">
-              <div className="w-8 h-8 flex items-center justify-center font-bold text-xl">AS</div>
+              <div className="w-8 h-8 flex items-center justify-center font-bold text-xl">
+                AS
+              </div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">{t("site.name")}</h1>
+              <h1 className="text-2xl font-bold text-gray-800">
+                {t("site.name")}
+              </h1>
               <p className="text-sm text-gray-600">{t("site.tagline")}</p>
             </div>
           </Link>
@@ -87,8 +106,15 @@ export default function Header() {
                 )}
               </Button>
             </Link>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -113,36 +139,53 @@ export default function Header() {
       </div>
 
       {/* Navigation */}
-      <nav className={`bg-gray-50 border-t ${isMenuOpen ? "block" : "hidden md:block"}`}>
+      <nav
+        className={`bg-gray-50 border-t ${isMenuOpen ? "block" : "hidden md:block"}`}
+      >
         <div className="container mx-auto px-4">
           <ul className="flex flex-col md:flex-row md:space-x-8 rtl:md:space-x-reverse py-4">
             <li>
-              <Link href="/" className="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+              <Link
+                href="/"
+                className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+              >
                 {t("nav.home")}
               </Link>
             </li>
             <li>
-              <Link href="/shop" className="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+              <Link
+                href="/shop"
+                className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+              >
                 {t("nav.shop")}
               </Link>
             </li>
             <li>
-              <Link href="/categories" className="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+              <Link
+                href="/categories"
+                className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+              >
                 {t("nav.categories")}
               </Link>
             </li>
+            {/* <li> */}
+            {/*   <Link href="/brands" className="block py-2 text-gray-700 hover:text-blue-600 font-medium"> */}
+            {/*     {t("nav.brands")} */}
+            {/*   </Link> */}
+            {/* </li> */}
             <li>
-              <Link href="/brands" className="block py-2 text-gray-700 hover:text-blue-600 font-medium">
-                {t("nav.brands")}
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+              <Link
+                href="/about"
+                className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+              >
                 {t("nav.about")}
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="block py-2 text-gray-700 hover:text-blue-600 font-medium">
+              <Link
+                href="/contact"
+                className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+              >
                 {t("nav.contact")}
               </Link>
             </li>
@@ -150,5 +193,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  )
+  );
 }

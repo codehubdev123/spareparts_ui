@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
-import Header from "@/components/layout/header"
-import Footer from "@/components/layout/footer"
-import ProductCard from "@/components/product-card"
-import { Button } from "@/components/ui/button"
-import { Filter, Grid, List } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import ProductCard from "@/components/product-card";
+import { Button } from "@/components/ui/button";
+import { Filter, Grid, List } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
+import ProductCardItem from "@/components/ProductCardItem";
 
 export default function ShopPage() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   const categories = [
     t("category.engine"),
@@ -17,9 +18,9 @@ export default function ShopPage() {
     t("category.electrical"),
     t("category.filters"),
     t("category.transmission"),
-  ]
+  ];
 
-  const brands = ["Toyota", "BMW", "Mercedes", "Audi", "Honda"]
+  const brands = ["Toyota", "BMW", "Mercedes", "Audi", "Honda"];
 
   const featuredProducts = [
     {
@@ -28,7 +29,9 @@ export default function ShopPage() {
       nameAr: "مجموعة فحمات فرامل سيراميك ممتازة",
       price: 299,
       originalPrice: 399,
-      image: "/placeholder.svg?height=250&width=300",
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p5.jpg",
+      imageActive: "/p55.png",
       discount: 25,
       rating: 5,
       reviews: 47,
@@ -39,13 +42,144 @@ export default function ShopPage() {
       nameAr: "فلتر هواء عالي الأداء",
       price: 89,
       originalPrice: 129,
-      image: "/placeholder.svg?height=250&width=300",
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p1.webp",
+      imageActive: "/p11.png",
       discount: 31,
       rating: 4,
       reviews: 32,
     },
-    // Add more products...
-  ]
+    {
+      id: "3",
+      name: "LED Headlight Conversion Kit",
+      nameAr: "طقم تحويل مصابيح LED أمامية",
+      price: 599,
+      originalPrice: 799,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p3.jpg",
+      imageActive: "/p33.png",
+      discount: 25,
+      rating: 5,
+      reviews: 89,
+    },
+    {
+      id: "4",
+      name: "Premium Oil Filter",
+      nameAr: "فلتر زيت ممتاز",
+      price: 45,
+      originalPrice: 65,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p6.jpeg",
+      imageActive: "/p66.png",
+      discount: 31,
+      rating: 4,
+      reviews: 156,
+    },
+    {
+      id: "1",
+      name: "Premium Ceramic Brake Pads Set",
+      nameAr: "مجموعة فحمات فرامل سيراميك ممتازة",
+      price: 299,
+      originalPrice: 399,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p5.jpg",
+      imageActive: "/p55.png",
+      discount: 25,
+      rating: 5,
+      reviews: 47,
+    },
+    {
+      id: "2",
+      name: "High Performance Air Filter",
+      nameAr: "فلتر هواء عالي الأداء",
+      price: 89,
+      originalPrice: 129,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p1.webp",
+      imageActive: "/p11.png",
+      discount: 31,
+      rating: 4,
+      reviews: 32,
+    },
+    {
+      id: "3",
+      name: "LED Headlight Conversion Kit",
+      nameAr: "طقم تحويل مصابيح LED أمامية",
+      price: 599,
+      originalPrice: 799,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p3.jpg",
+      imageActive: "/p33.png",
+      discount: 25,
+      rating: 5,
+      reviews: 89,
+    },
+    {
+      id: "4",
+      name: "Premium Oil Filter",
+      nameAr: "فلتر زيت ممتاز",
+      price: 45,
+      originalPrice: 65,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p6.jpeg",
+      imageActive: "/p66.png",
+      discount: 31,
+      rating: 4,
+      reviews: 156,
+    },
+    {
+      id: "1",
+      name: "Premium Ceramic Brake Pads Set",
+      nameAr: "مجموعة فحمات فرامل سيراميك ممتازة",
+      price: 299,
+      originalPrice: 399,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p5.jpg",
+      imageActive: "/p55.png",
+      discount: 25,
+      rating: 5,
+      reviews: 47,
+    },
+    {
+      id: "2",
+      name: "High Performance Air Filter",
+      nameAr: "فلتر هواء عالي الأداء",
+      price: 89,
+      originalPrice: 129,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p1.webp",
+      imageActive: "/p11.png",
+      discount: 31,
+      rating: 4,
+      reviews: 32,
+    },
+    {
+      id: "3",
+      name: "LED Headlight Conversion Kit",
+      nameAr: "طقم تحويل مصابيح LED أمامية",
+      price: 599,
+      originalPrice: 799,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p3.jpg",
+      imageActive: "/p33.png",
+      discount: 25,
+      rating: 5,
+      reviews: 89,
+    },
+    {
+      id: "4",
+      name: "Premium Oil Filter",
+      nameAr: "فلتر زيت ممتاز",
+      price: 45,
+      originalPrice: 65,
+      // image: "/placeholder.svg?height=250&width=300",
+      image: "/p6.jpeg",
+      imageActive: "/p66.png",
+      discount: 31,
+      rating: 4,
+      reviews: 156,
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -55,7 +189,9 @@ export default function ShopPage() {
       <section className="bg-gray-100 py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">{t("shop.title")}</h1>
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">
+              {t("shop.title")}
+            </h1>
             <p className="text-xl text-gray-600">{t("shop.subtitle")}</p>
           </div>
         </div>
@@ -73,11 +209,16 @@ export default function ShopPage() {
 
               {/* Categories */}
               <div className="mb-6">
-                <h4 className="font-semibold mb-3">{t("filters.categories")}</h4>
+                <h4 className="font-semibold mb-3">
+                  {t("filters.categories")}
+                </h4>
                 <div className="space-y-2">
                   {categories.map((category, index) => (
                     <label key={index} className="flex items-center">
-                      <input type="checkbox" className="mr-2 rtl:ml-2 rtl:mr-0" />
+                      <input
+                        type="checkbox"
+                        className="mr-2 rtl:ml-2 rtl:mr-0"
+                      />
                       <span className="text-sm">{category}</span>
                     </label>
                   ))}
@@ -90,7 +231,10 @@ export default function ShopPage() {
                 <div className="space-y-2">
                   {brands.map((brand, index) => (
                     <label key={index} className="flex items-center">
-                      <input type="checkbox" className="mr-2 rtl:ml-2 rtl:mr-0" />
+                      <input
+                        type="checkbox"
+                        className="mr-2 rtl:ml-2 rtl:mr-0"
+                      />
                       <span className="text-sm">{brand}</span>
                     </label>
                   ))}
@@ -99,28 +243,48 @@ export default function ShopPage() {
 
               {/* Price Range */}
               <div className="mb-6">
-                <h4 className="font-semibold mb-3">{t("filters.price.range")}</h4>
+                <h4 className="font-semibold mb-3">
+                  {t("filters.price.range")}
+                </h4>
                 <div className="space-y-2">
                   <label className="flex items-center">
-                    <input type="radio" name="price" className="mr-2 rtl:ml-2 rtl:mr-0" />
+                    <input
+                      type="radio"
+                      name="price"
+                      className="mr-2 rtl:ml-2 rtl:mr-0"
+                    />
                     <span className="text-sm">{t("filters.under.100")}</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="radio" name="price" className="mr-2 rtl:ml-2 rtl:mr-0" />
+                    <input
+                      type="radio"
+                      name="price"
+                      className="mr-2 rtl:ml-2 rtl:mr-0"
+                    />
                     <span className="text-sm">{t("filters.100.500")}</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="radio" name="price" className="mr-2 rtl:ml-2 rtl:mr-0" />
+                    <input
+                      type="radio"
+                      name="price"
+                      className="mr-2 rtl:ml-2 rtl:mr-0"
+                    />
                     <span className="text-sm">{t("filters.500.1000")}</span>
                   </label>
                   <label className="flex items-center">
-                    <input type="radio" name="price" className="mr-2 rtl:ml-2 rtl:mr-0" />
+                    <input
+                      type="radio"
+                      name="price"
+                      className="mr-2 rtl:ml-2 rtl:mr-0"
+                    />
                     <span className="text-sm">{t("filters.above.1000")}</span>
                   </label>
                 </div>
               </div>
 
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">{t("filters.apply")}</Button>
+              <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                {t("filters.apply")}
+              </Button>
             </div>
           </div>
 
@@ -151,10 +315,11 @@ export default function ShopPage() {
 
             {/* Products Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {Array.from({ length: 12 }, (_, index) => {
-                const product = featuredProducts[index % featuredProducts.length]
-                return <ProductCard key={index} {...product} />
-              })}
+              {featuredProducts.map((product) => (
+                <>
+                  <ProductCardItem key={product.id} product={product} />
+                </>
+              ))}
             </div>
 
             {/* Pagination */}
@@ -174,5 +339,5 @@ export default function ShopPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
