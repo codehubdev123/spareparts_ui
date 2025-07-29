@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect } from "react";
 
-type Language = "ar" | "en"
+type Language = "ar" | "en";
 
 interface LanguageContextType {
-  language: Language
-  toggleLanguage: () => void
-  t: (key: string) => string
+  language: Language;
+  toggleLanguage: () => void;
+  t: (key: string) => string;
 }
 
 const translations = {
   ar: {
     // Header
-    "site.name": "قطع غيار السيارات المحترفة",
+    "site.name": "دبي لقطع غيار السيارات",
     "site.tagline": "قطع غيار عالية الجودة",
     "search.placeholder": "البحث عن قطع الغيار...",
     "nav.home": "الرئيسية",
@@ -103,13 +103,15 @@ const translations = {
     "view.all": "عرض الكل",
 
     // Footer
-    "footer.company.desc": "شريكك الموثوق لقطع غيار السيارات الممتازة والإكسسوارات. جودة مضمونة، خدمة ممتازة.",
+    "footer.company.desc":
+      "شريكك الموثوق لقطع غيار السيارات الممتازة والإكسسوارات. جودة مضمونة، خدمة ممتازة.",
     "footer.quick.links": "روابط سريعة",
     "footer.categories": "الفئات",
     "footer.contact.us": "اتصل بنا",
     "footer.special.deals": "عروض خاصة",
     "footer.warranty": "الضمان",
-    "footer.address": "شارع قطع غيار السيارات 123، حي الملز، الرياض 12345، المملكة العربية السعودية",
+    "footer.address":
+      "شارع قطع غيار السيارات 123، حي الملز، الرياض 12345، المملكة العربية السعودية",
     "footer.hours": "الأحد - الخميس: 8:00 ص - 10:00 م",
     "footer.rights": "جميع الحقوق محفوظة 2024",
 
@@ -172,7 +174,8 @@ const translations = {
 
     // Categories Page
     "categories.page.title": "فئات قطع الغيار",
-    "categories.page.desc": "استكشف مجموعتنا الواسعة من قطع غيار السيارات المصنفة حسب النوع",
+    "categories.page.desc":
+      "استكشف مجموعتنا الواسعة من قطع غيار السيارات المصنفة حسب النوع",
     "categories.popular": "الفئات الأكثر شعبية",
     "categories.popular.desc": "الفئات الأكثر طلباً من عملائنا",
     "categories.items": "منتج",
@@ -188,7 +191,8 @@ const translations = {
     "start.shopping": "ابدأ التسوق",
     "trusted.brands": "العلامات التجارية الموثوقة",
     "stay.updated": "ابق على اطلاع",
-    "newsletter.desc": "اشترك للحصول على عروض خاصة وهدايا مجانية وتحديثات على الوصولات الجديدة",
+    "newsletter.desc":
+      "اشترك للحصول على عروض خاصة وهدايا مجانية وتحديثات على الوصولات الجديدة",
     "enter.email": "أدخل بريدك الإلكتروني",
     subscribe: "اشترك",
     "parts.available": "قطعة متوفرة",
@@ -356,7 +360,8 @@ const translations = {
 
     // Categories Page
     "categories.page.title": "Auto Parts Categories",
-    "categories.page.desc": "Explore our extensive collection of auto parts organized by category",
+    "categories.page.desc":
+      "Explore our extensive collection of auto parts organized by category",
     "categories.popular": "Most Popular Categories",
     "categories.popular.desc": "The most requested categories by our customers",
     "categories.items": "Items",
@@ -372,7 +377,8 @@ const translations = {
     "start.shopping": "Start Shopping",
     "trusted.brands": "Trusted Brands",
     "stay.updated": "Stay Updated",
-    "newsletter.desc": "Subscribe to get special offers, free giveaways, and updates on new arrivals",
+    "newsletter.desc":
+      "Subscribe to get special offers, free giveaways, and updates on new arrivals",
     "enter.email": "Enter your email",
     subscribe: "Subscribe",
     "parts.available": "Parts Available",
@@ -380,34 +386,44 @@ const translations = {
     "cart.items": "Cart Items",
     "order.summary": "Order Summary",
   },
-}
+};
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("ar")
+  const [language, setLanguage] = useState<Language>("ar");
 
   useEffect(() => {
     // Apply RTL/LTR to document
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
-    document.documentElement.lang = language
-  }, [language])
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = language;
+  }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "ar" ? "en" : "ar"))
-  }
+    setLanguage((prev) => (prev === "ar" ? "en" : "ar"));
+  };
 
   const t = (key: string): string => {
-    return translations[language][key as keyof (typeof translations)[typeof language]] || key
-  }
+    return (
+      translations[language][
+        key as keyof (typeof translations)[typeof language]
+      ] || key
+    );
+  };
 
-  return <LanguageContext.Provider value={{ language, toggleLanguage, t }}>{children}</LanguageContext.Provider>
+  return (
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useLanguage() {
-  const context = useContext(LanguageContext)
+  const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider")
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
-  return context
+  return context;
 }
