@@ -1,15 +1,26 @@
-"use client"
+"use client";
 
-import Header from "@/components/layout/header"
-import Footer from "@/components/layout/footer"
-import ImageZoom from "@/components/image-zoom"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Star, Heart, Share2, Truck, Shield, RotateCcw, Plus, Minus, ArrowRight } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
-import { useCart } from "@/contexts/cart-context"
-import { useState } from "react"
-import Link from "next/link"
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import ImageZoom from "@/components/image-zoom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Star,
+  Heart,
+  Share2,
+  Truck,
+  Shield,
+  RotateCcw,
+  Plus,
+  Minus,
+  ArrowRight,
+} from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
+import { useCart } from "@/contexts/cart-context";
+import { useState } from "react";
+import Link from "next/link";
+import ProductCardItem from "@/components/ProductCardItem";
 
 // Mock product data - in real app, this would come from API/database
 const getProductData = (id: string) => {
@@ -24,13 +35,7 @@ const getProductData = (id: string) => {
     reviews: 47,
     inStock: true,
     stockCount: 8,
-    images: [
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-      "/placeholder.svg?height=600&width=600",
-    ],
+    images: ["/p1.webp", "/p2.jpg", "/p3.jpg", "/p4.jpeg", "/p5.jpg"],
     category: "Brake System",
     categoryAr: "نظام الفرامل",
     brand: "AutoPro",
@@ -90,17 +95,21 @@ const getProductData = (id: string) => {
       "Hyundai Sonata 2020-2023",
       "Kia Optima 2016-2020",
     ],
-  }
-}
+  };
+};
 
-export default function ProductDetailsPage({ params }: { params: { id: string } }) {
-  const { language, t } = useLanguage()
-  const { addToCart } = useCart()
-  const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
-  const [activeTab, setActiveTab] = useState("description")
+export default function ProductDetailsPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { language, t } = useLanguage();
+  const { addToCart } = useCart();
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [activeTab, setActiveTab] = useState("description");
 
-  const product = getProductData(params.id)
+  const product = getProductData(params.id);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
@@ -111,9 +120,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
         price: product.price,
         image: product.images[0],
         inStock: product.inStock,
-      })
+      });
     }
-  }
+  };
 
   const relatedProducts = [
     {
@@ -121,30 +130,34 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
       name: "Brake Rotors Set",
       nameAr: "مجموعة أقراص الفرامل",
       price: 599,
-      image: "/placeholder.svg?height=200&width=250",
+      image: "/p1.webp",
+      imageActive: "/p11.png",
     },
     {
       id: "3",
       name: "Brake Fluid DOT 4",
       nameAr: "سائل الفرامل DOT 4",
       price: 45,
-      image: "/placeholder.svg?height=200&width=250",
+      image: "/p5.jpg",
+      imageActive: "/p55.png",
     },
     {
       id: "4",
       name: "Brake Calipers",
       nameAr: "كاليبرات الفرامل",
       price: 899,
-      image: "/placeholder.svg?height=200&width=250",
+      image: "/p3.jpg",
+      imageActive: "/p33.png",
     },
     {
       id: "5",
       name: "Brake Lines Kit",
       nameAr: "طقم خطوط الفرامل",
       price: 159,
-      image: "/placeholder.svg?height=200&width=250",
+      image: "/p6.jpeg",
+      imageActive: "/p66.png",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -157,16 +170,27 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
             <Link href="/" className="text-blue-600 hover:underline">
               {t("nav.home")}
             </Link>
-            <ArrowRight className={`w-4 h-4 text-gray-400 ${language === "ar" ? "rotate-180" : ""}`} />
+            <ArrowRight
+              className={`w-4 h-4 text-gray-400 ${language === "ar" ? "rotate-180" : ""}`}
+            />
             <Link href="/shop" className="text-blue-600 hover:underline">
               {t("nav.shop")}
             </Link>
-            <ArrowRight className={`w-4 h-4 text-gray-400 ${language === "ar" ? "rotate-180" : ""}`} />
-            <Link href="/categories/brake-system" className="text-blue-600 hover:underline">
+            <ArrowRight
+              className={`w-4 h-4 text-gray-400 ${language === "ar" ? "rotate-180" : ""}`}
+            />
+            <Link
+              href="/categories/brake-system"
+              className="text-blue-600 hover:underline"
+            >
               {language === "ar" ? product.categoryAr : product.category}
             </Link>
-            <ArrowRight className={`w-4 h-4 text-gray-400 ${language === "ar" ? "rotate-180" : ""}`} />
-            <span className="text-gray-600">{language === "ar" ? product.nameAr : product.name}</span>
+            <ArrowRight
+              className={`w-4 h-4 text-gray-400 ${language === "ar" ? "rotate-180" : ""}`}
+            />
+            <span className="text-gray-600">
+              {language === "ar" ? product.nameAr : product.name}
+            </span>
           </nav>
         </div>
       </div>
@@ -224,7 +248,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                 <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
                   {language === "ar" ? product.categoryAr : product.category}
                 </span>
-                <span className={`text-sm text-gray-500 ${language === "ar" ? "mr-4" : "ml-4"}`}>
+                <span
+                  className={`text-sm text-gray-500 ${language === "ar" ? "mr-4" : "ml-4"}`}
+                >
                   SKU: {product.sku}
                 </span>
               </div>
@@ -242,7 +268,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                     />
                   ))}
                 </div>
-                <span className={`text-gray-600 ${language === "ar" ? "mr-2" : "ml-2"}`}>
+                <span
+                  className={`text-gray-600 ${language === "ar" ? "mr-2" : "ml-2"}`}
+                >
                   ({product.reviews} {language === "ar" ? "تقييم" : "reviews"})
                 </span>
                 <span
@@ -271,7 +299,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                   )}
                   {product.discount && (
                     <span className="bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                      {language === "ar" ? `وفر ${product.discount}%` : `Save ${product.discount}%`}
+                      {language === "ar"
+                        ? `وفر ${product.discount}%`
+                        : `Save ${product.discount}%`}
                     </span>
                   )}
                 </div>
@@ -293,7 +323,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                   language === "ar" ? "text-right" : "text-left"
                 }`}
               >
-                <option value="">{language === "ar" ? "اختر مركبتك" : "Select your vehicle"}</option>
+                <option value="">
+                  {language === "ar" ? "اختر مركبتك" : "Select your vehicle"}
+                </option>
                 {product.compatibility.map((vehicle, index) => (
                   <option key={index} value={vehicle}>
                     {vehicle}
@@ -304,7 +336,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
 
             {/* Quantity Selector */}
             <div className="mb-6">
-              <label className="block text-sm font-semibold mb-2">{language === "ar" ? "الكمية" : "Quantity"}</label>
+              <label className="block text-sm font-semibold mb-2">
+                {language === "ar" ? "الكمية" : "Quantity"}
+              </label>
               <div className="flex items-center space-x-4 rtl:space-x-reverse">
                 <div className="flex items-center border border-gray-300 rounded-lg">
                   <button
@@ -313,8 +347,13 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                   >
                     <Minus className="w-4 h-4" />
                   </button>
-                  <span className="px-4 py-3 border-x border-gray-300 min-w-[60px] text-center">{quantity}</span>
-                  <button onClick={() => setQuantity(quantity + 1)} className="p-3 hover:bg-gray-100 transition-colors">
+                  <span className="px-4 py-3 border-x border-gray-300 min-w-[60px] text-center">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="p-3 hover:bg-gray-100 transition-colors"
+                  >
                     <Plus className="w-4 h-4" />
                   </button>
                 </div>
@@ -366,16 +405,22 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
               <div className="flex items-center space-x-3 rtl:space-x-reverse p-3 bg-gray-50 rounded-lg">
                 <Truck className="w-6 h-6 text-blue-600" />
                 <div>
-                  <div className="font-semibold text-sm">{language === "ar" ? "توصيل مجاني" : "Free Delivery"}</div>
+                  <div className="font-semibold text-sm">
+                    {language === "ar" ? "توصيل مجاني" : "Free Delivery"}
+                  </div>
                   <div className="text-xs text-gray-600">
-                    {language === "ar" ? "للطلبات أكثر من 500 ريال" : "Orders over 500 SAR"}
+                    {language === "ar"
+                      ? "للطلبات أكثر من 500 ريال"
+                      : "Orders over 500 SAR"}
                   </div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 rtl:space-x-reverse p-3 bg-gray-50 rounded-lg">
                 <Shield className="w-6 h-6 text-green-600" />
                 <div>
-                  <div className="font-semibold text-sm">{language === "ar" ? "ضمان سنتان" : "2 Year Warranty"}</div>
+                  <div className="font-semibold text-sm">
+                    {language === "ar" ? "ضمان سنتان" : "2 Year Warranty"}
+                  </div>
                   <div className="text-xs text-gray-600">
                     {language === "ar" ? "جودة مضمونة" : "Quality guaranteed"}
                   </div>
@@ -384,9 +429,13 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
               <div className="flex items-center space-x-3 rtl:space-x-reverse p-3 bg-gray-50 rounded-lg">
                 <RotateCcw className="w-6 h-6 text-orange-600" />
                 <div>
-                  <div className="font-semibold text-sm">{language === "ar" ? "إرجاع سهل" : "Easy Returns"}</div>
+                  <div className="font-semibold text-sm">
+                    {language === "ar" ? "إرجاع سهل" : "Easy Returns"}
+                  </div>
                   <div className="text-xs text-gray-600">
-                    {language === "ar" ? "سياسة إرجاع 30 يوم" : "30 day return policy"}
+                    {language === "ar"
+                      ? "سياسة إرجاع 30 يوم"
+                      : "30 day return policy"}
                   </div>
                 </div>
               </div>
@@ -399,10 +448,22 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 rtl:space-x-reverse">
               {[
-                { id: "description", label: language === "ar" ? "الوصف" : "Description" },
-                { id: "specifications", label: language === "ar" ? "المواصفات" : "Specifications" },
-                { id: "reviews", label: `${language === "ar" ? "التقييمات" : "Reviews"} (${product.reviews})` },
-                { id: "installation", label: language === "ar" ? "التركيب" : "Installation" },
+                {
+                  id: "description",
+                  label: language === "ar" ? "الوصف" : "Description",
+                },
+                {
+                  id: "specifications",
+                  label: language === "ar" ? "المواصفات" : "Specifications",
+                },
+                {
+                  id: "reviews",
+                  label: `${language === "ar" ? "التقييمات" : "Reviews"} (${product.reviews})`,
+                },
+                {
+                  id: "installation",
+                  label: language === "ar" ? "التركيب" : "Installation",
+                },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -427,14 +488,19 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                   {language === "ar" ? "وصف المنتج" : "Product Description"}
                 </h3>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  {language === "ar" ? product.description.ar : product.description.en}
+                  {language === "ar"
+                    ? product.description.ar
+                    : product.description.en}
                 </p>
 
                 <h4 className="text-xl font-semibold mb-3">
                   {language === "ar" ? "الميزات الرئيسية:" : "Key Features:"}
                 </h4>
                 <ul className="list-disc pl-6 rtl:pr-6 rtl:pl-0 space-y-2 text-gray-700">
-                  {(language === "ar" ? product.features.ar : product.features.en).map((feature, index) => (
+                  {(language === "ar"
+                    ? product.features.ar
+                    : product.features.en
+                  ).map((feature, index) => (
                     <li key={index}>{feature}</li>
                   ))}
                 </ul>
@@ -445,12 +511,22 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
             {activeTab === "specifications" && (
               <div>
                 <h3 className="text-2xl font-semibold mb-6">
-                  {language === "ar" ? "المواصفات التقنية" : "Technical Specifications"}
+                  {language === "ar"
+                    ? "المواصفات التقنية"
+                    : "Technical Specifications"}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {(language === "ar" ? product.specifications.ar : product.specifications.en).map((spec, index) => (
-                    <div key={index} className="flex justify-between p-4 bg-gray-50 rounded-lg">
-                      <span className="font-semibold text-gray-800">{spec.label}:</span>
+                  {(language === "ar"
+                    ? product.specifications.ar
+                    : product.specifications.en
+                  ).map((spec, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between p-4 bg-gray-50 rounded-lg"
+                    >
+                      <span className="font-semibold text-gray-800">
+                        {spec.label}:
+                      </span>
                       <span className="text-gray-600">{spec.value}</span>
                     </div>
                   ))}
@@ -468,24 +544,40 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                   {/* Review Summary */}
                   <div className="flex items-center space-x-6 rtl:space-x-reverse p-6 bg-gray-50 rounded-lg">
                     <div className="text-center">
-                      <div className="text-4xl font-bold text-blue-600">{product.rating}.0</div>
+                      <div className="text-4xl font-bold text-blue-600">
+                        {product.rating}.0
+                      </div>
                       <div className="flex items-center justify-center mt-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                          />
                         ))}
                       </div>
                       <div className="text-sm text-gray-600 mt-1">
-                        {product.reviews} {language === "ar" ? "تقييم" : "reviews"}
+                        {product.reviews}{" "}
+                        {language === "ar" ? "تقييم" : "reviews"}
                       </div>
                     </div>
                     <div className="flex-1">
                       {[5, 4, 3, 2, 1].map((stars) => (
-                        <div key={stars} className="flex items-center space-x-2 rtl:space-x-reverse mb-1">
+                        <div
+                          key={stars}
+                          className="flex items-center space-x-2 rtl:space-x-reverse mb-1"
+                        >
                           <span className="text-sm w-8">{stars}★</span>
                           <div className="flex-1 bg-gray-200 rounded-full h-2">
                             <div
                               className="bg-yellow-400 h-2 rounded-full"
-                              style={{ width: stars === 5 ? "80%" : stars === 4 ? "15%" : "5%" }}
+                              style={{
+                                width:
+                                  stars === 5
+                                    ? "80%"
+                                    : stars === 4
+                                      ? "15%"
+                                      : "5%",
+                              }}
                             />
                           </div>
                           <span className="text-sm text-gray-600 w-8">
@@ -518,7 +610,10 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                             : "Great brake pads, very quiet and no dust. Good price.",
                       },
                     ].map((review, index) => (
-                      <div key={index} className="p-4 border border-gray-200 rounded-lg">
+                      <div
+                        key={index}
+                        className="p-4 border border-gray-200 rounded-lg"
+                      >
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center space-x-2 rtl:space-x-reverse">
                             <span className="font-semibold">{review.name}</span>
@@ -531,7 +626,9 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                               ))}
                             </div>
                           </div>
-                          <span className="text-sm text-gray-500">{review.date}</span>
+                          <span className="text-sm text-gray-500">
+                            {review.date}
+                          </span>
                         </div>
                         <p className="text-gray-700">{review.comment}</p>
                       </div>
@@ -550,34 +647,76 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-lg font-semibold mb-4">
-                      {language === "ar" ? "الأدوات المطلوبة:" : "Required Tools:"}
+                      {language === "ar"
+                        ? "الأدوات المطلوبة:"
+                        : "Required Tools:"}
                     </h4>
                     <ul className="list-disc pl-6 rtl:pr-6 rtl:pl-0 space-y-1 text-gray-700 mb-6">
                       <li>{language === "ar" ? "مفتاح ربط" : "Lug wrench"}</li>
                       <li>{language === "ar" ? "رافعة سيارة" : "Car jack"}</li>
-                      <li>{language === "ar" ? "حامل السيارة" : "Jack stands"}</li>
+                      <li>
+                        {language === "ar" ? "حامل السيارة" : "Jack stands"}
+                      </li>
                       <li>{language === "ar" ? "مفك براغي" : "Screwdriver"}</li>
-                      <li>{language === "ar" ? "مفتاح ألن" : "Allen key set"}</li>
+                      <li>
+                        {language === "ar" ? "مفتاح ألن" : "Allen key set"}
+                      </li>
                     </ul>
 
                     <h4 className="text-lg font-semibold mb-4">
-                      {language === "ar" ? "خطوات التركيب:" : "Installation Steps:"}
+                      {language === "ar"
+                        ? "خطوات التركيب:"
+                        : "Installation Steps:"}
                     </h4>
                     <ol className="list-decimal pl-6 rtl:pr-6 rtl:pl-0 space-y-2 text-gray-700">
-                      <li>{language === "ar" ? "ارفع السيارة وثبتها بأمان" : "Safely lift and secure the vehicle"}</li>
-                      <li>{language === "ar" ? "أزل العجلة" : "Remove the wheel"}</li>
-                      <li>{language === "ar" ? "أزل الكاليبر القديم" : "Remove the old caliper"}</li>
-                      <li>{language === "ar" ? "أزل الفحمات القديمة" : "Remove old brake pads"}</li>
-                      <li>{language === "ar" ? "نظف منطقة التركيب" : "Clean the installation area"}</li>
-                      <li>{language === "ar" ? "ركب الفحمات الجديدة" : "Install new brake pads"}</li>
-                      <li>{language === "ar" ? "أعد تركيب الكاليبر" : "Reinstall the caliper"}</li>
-                      <li>{language === "ar" ? "اختبر الفرامل قبل القيادة" : "Test brakes before driving"}</li>
+                      <li>
+                        {language === "ar"
+                          ? "ارفع السيارة وثبتها بأمان"
+                          : "Safely lift and secure the vehicle"}
+                      </li>
+                      <li>
+                        {language === "ar" ? "أزل العجلة" : "Remove the wheel"}
+                      </li>
+                      <li>
+                        {language === "ar"
+                          ? "أزل الكاليبر القديم"
+                          : "Remove the old caliper"}
+                      </li>
+                      <li>
+                        {language === "ar"
+                          ? "أزل الفحمات القديمة"
+                          : "Remove old brake pads"}
+                      </li>
+                      <li>
+                        {language === "ar"
+                          ? "نظف منطقة التركيب"
+                          : "Clean the installation area"}
+                      </li>
+                      <li>
+                        {language === "ar"
+                          ? "ركب الفحمات الجديدة"
+                          : "Install new brake pads"}
+                      </li>
+                      <li>
+                        {language === "ar"
+                          ? "أعد تركيب الكاليبر"
+                          : "Reinstall the caliper"}
+                      </li>
+                      <li>
+                        {language === "ar"
+                          ? "اختبر الفرامل قبل القيادة"
+                          : "Test brakes before driving"}
+                      </li>
                     </ol>
                   </div>
                   <div>
                     <img
                       src="/placeholder.svg?height=400&width=500"
-                      alt={language === "ar" ? "مخطط تركيب فحمات الفرامل" : "Brake pad installation diagram"}
+                      alt={
+                        language === "ar"
+                          ? "مخطط تركيب فحمات الفرامل"
+                          : "Brake pad installation diagram"
+                      }
                       className="w-full rounded-lg shadow-lg"
                     />
                   </div>
@@ -595,30 +734,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map((product) => (
-              <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 cursor-pointer">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={product.image || "/placeholder.svg"}
-                    alt={language === "ar" ? product.nameAr : product.name}
-                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-4">
-                  <Link href={`/product/${product.id}`}>
-                    <h3 className="font-semibold mb-1 hover:text-blue-600 transition-colors">
-                      {language === "ar" ? product.nameAr : product.name}
-                    </h3>
-                  </Link>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-blue-600">
-                      {product.price} {t("price.currency")}
-                    </span>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      {language === "ar" ? "أضف للسلة" : "Add to Cart"}
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              <ProductCardItem key={product.id} product={product} />
             ))}
           </div>
         </div>
@@ -626,5 +742,5 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
 
       <Footer />
     </div>
-  )
+  );
 }
